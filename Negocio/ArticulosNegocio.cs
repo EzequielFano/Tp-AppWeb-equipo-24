@@ -15,13 +15,78 @@ namespace Negocio
     public class ArticulosNegocio
     {
         AccesoDatos datos = new AccesoDatos();
-        public List<Articulo> TraerListado()
+        //public List<Articulo> TraerListado()
+        //{
+        //    List<Articulo> articulos = new List<Articulo>();
+
+        //    try
+        //    {
+        //        datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca,A.IdMarca,A.IdCategoria, C.Descripcion Categoria,A.Precio, IM.ImagenUrl from ARTICULOS A INNER join IMAGENES IM ON A.Id= IM.IdArticulo INNER JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id\r\n");
+        //        datos.ejecutarLectura();
+        //        int currentArticuloId = -1; // Para controlar el artículo actual
+
+        //        while (datos.Lector.Read())
+        //        {
+        //            int articuloId = datos.Lector.GetInt32(0);
+
+        //            // Si es un artículo diferente al anterior, crea un nuevo Articulo
+        //            if (articuloId != currentArticuloId)
+        //            {
+        //                Articulo aux = new Articulo();
+        //                aux.IdArticulo = articuloId;
+        //                aux.CodigoArticulo = (string)datos.Lector["Codigo"];
+        //                aux.NombreArticulo = (string)datos.Lector["Nombre"];
+        //                aux.Descripcion = (string)datos.Lector["Descripcion"];
+        //                aux.Marca = new Marca();
+        //                aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+        //                aux.Marca.Id = (int)datos.Lector["IdMarca"];
+        //                aux.Categoria = new Categoria();
+        //                if (datos.Lector["Categoria"] is DBNull)
+        //                {
+        //                    aux.Categoria = null;
+        //                }
+        //                else
+        //                {
+        //                    aux.Categoria = new Categoria();
+        //                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+        //                    aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+        //                }
+        //                aux.Precio = (int)datos.Lector.GetSqlMoney(8);
+
+        //                aux.URLImagen = new List<Imagen>(); // Inicializa la lista de imágenes
+        //                currentArticuloId = articuloId;
+
+        //                articulos.Add(aux);
+        //            }
+
+        //            // Añade la imagen actual al artículo actual
+        //            if (!(datos.Lector["ImagenUrl"] is DBNull))
+        //            {
+        //                Imagen imagen = new Imagen();
+        //                imagen.URL = (string)datos.Lector["ImagenUrl"];
+        //                articulos.Last().URLImagen.Add(imagen);
+        //            }
+        //        }
+
+        //        return articulos;
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        throw ex;
+        //    }
+        //    finally
+        //    {
+        //        datos.cerrarConexion();
+        //    }
+        //}
+
+        public List<Articulo> TraerListadoSP()
         {
             List<Articulo> articulos = new List<Articulo>();
 
             try
             {
-                datos.setearConsulta("select A.Id, A.Codigo, A.Nombre, A.Descripcion, M.Descripcion Marca,A.IdMarca,A.IdCategoria, C.Descripcion Categoria,A.Precio, IM.ImagenUrl from ARTICULOS A INNER join IMAGENES IM ON A.Id= IM.IdArticulo INNER JOIN MARCAS M ON A.IdMarca = M.Id LEFT JOIN CATEGORIAS C ON A.IdCategoria = C.Id\r\n");
+                datos.setearProcedure("storedListar");
                 datos.ejecutarLectura();
                 int currentArticuloId = -1; // Para controlar el artículo actual
 

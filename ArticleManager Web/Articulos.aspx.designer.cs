@@ -11,7 +11,7 @@ namespace ArticleManager_Web
 {
 
 
-    public partial class Default
+    public partial class Articulos1
     {
     }
 }
