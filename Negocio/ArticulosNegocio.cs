@@ -99,6 +99,10 @@ namespace Negocio
                     if (!(datos.Lector["ImagenUrl"] is DBNull))
                     {
                         aux.URLImagen.URL = (string)datos.Lector["ImagenUrl"];
+                        if(aux.URLImagen.URL==" ")
+                        {
+                            aux.URLImagen.URL = "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png";
+                        }
                     }
                     articulos.Add(aux);
 
@@ -114,6 +118,8 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
+   
+       
         public void agregarArticulo(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();

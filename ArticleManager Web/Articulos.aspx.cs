@@ -19,5 +19,18 @@ namespace ArticleManager_Web
             rpRepetidor.DataSource = ListaArticulos;
             rpRepetidor.DataBind();
         }
+
+        //private void cargarImagen(string imagen)
+        //{
+        //    try
+        //    {
+        //        pbxArticulo.Load(imagen);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        pbxArticulo.Load("https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png");
+        //    }
+        //}
+
     }
 }

@@ -16,7 +16,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             try
             {
-                datos.setearConsulta("select  IdArticulo, ImagenUrl from IMAGENES");
+                datos.setearProcedura("storedListarImagenes");
                 datos.ejecutarLectura();
                 while (datos.Lector.Read())
                 {
@@ -25,7 +25,7 @@ namespace Negocio
                     aux.IdImagen = (int)datos.Lector["IdArticulo"];
 
                     aux.URL = (string)datos.Lector["ImagenUrl"];
-
+                   
                     Lista.Add(aux);
                 }
                 return Lista;
