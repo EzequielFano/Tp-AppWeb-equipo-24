@@ -8,7 +8,7 @@ using Negocio;
 
 namespace ArticleManager_Web
 {
-    public partial class Articulos : System.Web.UI.Page
+    public partial class ArticulosLista : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

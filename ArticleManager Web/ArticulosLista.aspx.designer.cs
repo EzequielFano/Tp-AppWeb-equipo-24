@@ -11,7 +11,7 @@ namespace ArticleManager_Web
 {
 
 
-    public partial class Articulos
+    public partial class ArticulosLista
     {
 
         /// <summary>
