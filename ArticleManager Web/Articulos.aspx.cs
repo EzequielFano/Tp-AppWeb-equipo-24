@@ -16,21 +16,16 @@ namespace ArticleManager_Web
         {
             ArticulosNegocio negocio = new ArticulosNegocio();
             ListaArticulos = negocio.TraerListadoSP();
-            rpRepetidor.DataSource = ListaArticulos;
-            rpRepetidor.DataBind();
+            if (!IsPostBack)
+            {
+                rpRepetidor.DataSource = ListaArticulos;
+                rpRepetidor.DataBind();
+            }
         }
 
-        //private void cargarImagen(string imagen)
-        //{
-        //    try
-        //    {
-        //        pbxArticulo.Load(imagen);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        pbxArticulo.Load("https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png");
-        //    }
-        //}
-
+        protected void btnCarrito_Click(object sender, EventArgs e)
+        {
+            string valor = ((Button)sender).CommandArgument;
+        }
     }
 }
