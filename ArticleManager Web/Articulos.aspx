@@ -15,7 +15,7 @@
                         <h5 class="card-title"><%#Eval("NombreArticulo") %></h5>
                         <h4>$ <%#Eval("Precio") %></h4>
                         <p class="card-text"><%#Eval("Descripcion")%></p>
-                        <a href="Detalles.aspx">Ver Detalles</a>
+                        <a href="Detalles.aspx?id=<%#Eval("IdArticulo")%>">Ver Detalles</a>
                         <asp:Button ID="btnCarrito" runat="server" Text="Agregar al carrito" CommandArgument='<%#Eval("IdArticulo")%>' commandName="IdArticulo" OnClick="btnCarrito_Click"/>
                         
                     </div>

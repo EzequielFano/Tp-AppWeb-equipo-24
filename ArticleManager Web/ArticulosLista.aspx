@@ -10,11 +10,7 @@
             <asp:BoundField Headertext="Categoria" DataField="Categoria.Descripcion" />
             <asp:BoundField Headertext="Marca" DataField="Marca.Descripcion" />
         </Columns>
-        <%--<asp:Repeater runat="server" id="repRepetidor">
-            <ItemTemplate>
-
-            </ItemTemplate>
-        </asp:Repeater>--%>
+       
     </asp:GridView>
     
 </asp:Content>

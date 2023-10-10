@@ -185,6 +185,53 @@ namespace Negocio
             finally { datos.cerrarConexion(); }
         }
 
+
+        //public Articulo verDetallesArticulo(string Id)
+        //{
+        //    AccesoDatos datos = new AccesoDatos();
+        //    Articulo articulo = new Articulo(); 
+          
+        //    datos.setearConsulta("SELECT A.Codigo AS CodigoArticulo, A.Nombre AS NombreArticulo, A.Descripcion AS DescripcionArticulo, M.Descripcion AS Marca, C.Descripcion AS Categoria, A.Precio FROM ARTICULOS AS A INNER JOIN MARCAS AS M ON A.IdMarca = M.Id INNER JOIN CATEGORIAS AS C ON A.IdCategoria = C.Id WHERE A.Id = @IdArticulo");
+        //    datos.setearParametro("IdArticulo", Id);
+        //    datos.ejecutarLectura();
+        //    datos.cerrarConexion();
+        //    return articulo;
+        //}
+
+        public List<Articulo> verDetallesArticulo (int Id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            Articulo aux = new Articulo();
+            List<Articulo> articulos = new List<Articulo>();
+
+
+            datos.setearProcedura("ObtenerArticuloPorId");
+            datos.setearParametro("IdArticulo", Id);
+            datos.ejecutarLectura();
+            while (datos.Lector.Read())
+            {
+                aux.IdArticulo = Id;
+                aux.CodigoArticulo = (string)datos.Lector["CodigoArticulo"];
+                aux.NombreArticulo = (string)datos.Lector["NombreArticulo"];
+                aux.Descripcion = (string)datos.Lector["DescripcionArticulo"];
+                aux.Marca = new Marca();
+                aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                aux.Categoria = new Categoria();
+                if (datos.Lector["Categoria"] is DBNull)
+                {
+                    aux.Categoria = null;
+                }
+                else
+                {
+                    aux.Categoria = new Categoria();
+                    aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                }
+                aux.Precio = (int)datos.Lector.GetSqlMoney(5);    
+                articulos.Add(aux);
+            }
+            return articulos;
+        }
+
         public void eliminarArticulo (int id)
         {
             AccesoDatos datos= new AccesoDatos ();  
