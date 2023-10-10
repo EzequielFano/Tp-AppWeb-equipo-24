@@ -18,8 +18,8 @@ namespace ArticleManager_Web
 
             ArticulosNegocio negocio = new ArticulosNegocio();
             string id = Request.QueryString["id"];
-            dgvDetalles.DataSource = negocio.verDetallesArticulo(int.Parse(id));
-            dgvDetalles.DataBind();
+            rpDetalles.DataSource = negocio.verDetallesArticulo(int.Parse(id));
+            rpDetalles.DataBind();
 
 
 

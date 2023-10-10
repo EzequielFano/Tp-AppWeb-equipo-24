@@ -197,7 +197,32 @@ namespace Negocio
         //    datos.cerrarConexion();
         //    return articulo;
         //}
+        public List<string> verImagenesArticulo(int id)
+        {
+            AccesoDatos datos = new AccesoDatos();
+            List<string> img = new List<string>();
+            Articulo aux = new Articulo();
 
+            datos.setearProcedura("ObtenerImagenesxId");
+            datos.setearParametro("IdArticulo", id);
+            datos.ejecutarLectura();
+
+            aux.URLImagen = new Imagen();
+            while (datos.Lector.Read())
+            {
+
+                if (!(datos.Lector["ImagenUrl"] is DBNull))
+                {
+                    aux.URLImagen.URL = (string)datos.Lector["ImagenUrl"];
+                    if (aux.URLImagen.URL == " ")
+                    {
+                        aux.URLImagen.URL = "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png";
+                    }
+                }
+                img.Add(aux.URLImagen.URL);
+            }
+            return img;
+        }
         public List<Articulo> verDetallesArticulo (int Id)
         {
             AccesoDatos datos = new AccesoDatos();
