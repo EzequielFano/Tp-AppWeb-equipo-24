@@ -68,6 +68,7 @@ namespace Negocio
         {
             List<Articulo> articulos = new List<Articulo>();
             AccesoDatos datos = new AccesoDatos();
+            int auximg = 0;
 
             try
             {
@@ -103,6 +104,7 @@ namespace Negocio
                         {
                             aux.URLImagen.URL = "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png";
                         }
+                        auximg++;
                     }
                     articulos.Add(aux);
 
@@ -197,31 +199,30 @@ namespace Negocio
         //    datos.cerrarConexion();
         //    return articulo;
         //}
-        public List<string> verImagenesArticulo(int id)
+        public List<Imagen> verImagenesArticulo(int id)
         {
             AccesoDatos datos = new AccesoDatos();
-            List<string> img = new List<string>();
+            List<Imagen> listImg = new List<Imagen>();
             Articulo aux = new Articulo();
+      
 
             datos.setearProcedura("ObtenerImagenesxId");
             datos.setearParametro("IdArticulo", id);
             datos.ejecutarLectura();
-
-            aux.URLImagen = new Imagen();
+            int auxId = 1;
             while (datos.Lector.Read())
             {
+                aux.URLImagen = new Imagen();
 
                 if (!(datos.Lector["ImagenUrl"] is DBNull))
                 {
                     aux.URLImagen.URL = (string)datos.Lector["ImagenUrl"];
-                    if (aux.URLImagen.URL == " ")
-                    {
-                        aux.URLImagen.URL = "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png";
-                    }
+                    aux.URLImagen.IdImagen = auxId;
                 }
-                img.Add(aux.URLImagen.URL);
+                auxId++;
+                listImg.Add(aux.URLImagen);
             }
-            return img;
+            return listImg;
         }
         public List<Articulo> verDetallesArticulo (int Id)
         {
@@ -240,7 +241,16 @@ namespace Negocio
                 aux.NombreArticulo = (string)datos.Lector["NombreArticulo"];
                 aux.Descripcion = (string)datos.Lector["DescripcionArticulo"];
                 aux.Marca = new Marca();
+                if (datos.Lector["Marca"] is DBNull)
+                {
+                    aux.Marca = null;
+                }
+                else
+                {
+                aux.Marca = new Marca();
                 aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                }
+
                 aux.Categoria = new Categoria();
                 if (datos.Lector["Categoria"] is DBNull)
                 {
