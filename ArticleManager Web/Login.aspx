@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
-    <%if (user == "" || password=="")
+    <%if (!session)
         {%>
 
     <h3>Ingrese sus datos para iniciar la sesion: </h3>

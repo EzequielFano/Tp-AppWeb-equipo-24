@@ -12,8 +12,10 @@ namespace ArticleManager_Web
     public partial class Articulos1 : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulos { get; set; }
+        public bool session { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            session = Session["session"] != null ? (bool)Session["session"] : false;
             ArticulosNegocio negocio = new ArticulosNegocio();
             ListaArticulos = negocio.TraerListadoSP();
             if (!IsPostBack)

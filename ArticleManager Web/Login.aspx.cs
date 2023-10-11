@@ -11,18 +11,22 @@ namespace ArticleManager_Web
     {
         public string user { get; set; }
         public string password { get; set; }
+        public bool session { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
             user = Session["user"]!=null ? Session["user"].ToString() : "" ;  
             password = Session["password"] != null ? Session["user"].ToString() : "";
+            session = Session["session"] != null ? (bool)Session["session"] : false;
+
         }
 
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
-            string user = txtUser.Text;
-            password = txtPassword.Text;   
+            user = txtUser.Text;
+            password = txtPassword.Text;  
             Session.Add("user", user);
             Session.Add("password", password);
+            Session.Add("session", true);
             Response.Redirect("Login.aspx", false);
         }
 
@@ -31,6 +35,8 @@ namespace ArticleManager_Web
             
             Session.Add("user", "");
             Session.Add("password", "");
+            Session.Add("session", session);
+            Session.Add("session", false);
             Response.Redirect("Login.aspx", false);
         }
     }

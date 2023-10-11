@@ -16,8 +16,10 @@
                         <h4>$ <%#Eval("Precio") %></h4>
                         <p class="card-text"><%#Eval("Descripcion")%></p>
                         <a href="Detalles.aspx?id=<%#Eval("IdArticulo")%>">Ver Detalles</a>
+                        <%if (session)
+                            {%>
                         <asp:Button ID="btnCarrito" runat="server" Text="Agregar al carrito" CommandArgument='<%#Eval("IdArticulo")%>' commandName="IdArticulo" OnClick="btnCarrito_Click"/>
-                        
+                        <%} %>
                     </div>
                 </div>
             </div>
