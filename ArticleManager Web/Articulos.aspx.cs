@@ -7,11 +7,17 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
 
+
 namespace ArticleManager_Web
 {
     public partial class Articulos1 : System.Web.UI.Page
     {
         public List<Articulo> ListaArticulos { get; set; }
+        static public List<Articulo> ArticulosCarrito { get; set; }
+        public List<Articulo> auxArticulo { get; set; }
+
+        public string idArticulo { get; set; }
+
         public bool session { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -27,7 +33,14 @@ namespace ArticleManager_Web
 
         protected void btnCarrito_Click(object sender, EventArgs e)
         {
+
             string valor = ((Button)sender).CommandArgument;
+            auxArticulo = new List<Articulo>();
+            ArticulosNegocio negocio = new ArticulosNegocio();
+            ArticulosCarrito = negocio.verDetallesArticulo(int.Parse(valor));
+            Session.Add("ArticulosCarrito", auxArticulo);
+            Session.Add("idArticulo", valor);
+            Response.Redirect("Articulos.aspx", false);
         }
     }
 }

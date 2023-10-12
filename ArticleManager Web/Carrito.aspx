@@ -1,9 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="Detalles.aspx.cs" Inherits="ArticleManager_Web.Detalles" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/MiMaster.Master" AutoEventWireup="true" CodeBehind="Carrito.aspx.cs" Inherits="ArticleManager_Web.Carrito" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Detalle del articulo</h1>
+        <h1>Carrito</h1>
 
         <asp:Repeater ID="rpRepetidorImg" runat="server">
             <ItemTemplate>
@@ -11,7 +10,7 @@
             </ItemTemplate>
         </asp:Repeater>
     <%//Detalles %>
-    <asp:Repeater ID="rpDetalles" runat="server">
+    <asp:Repeater ID="rpCarrito" runat="server">
         <ItemTemplate>
             <div class="card mb-3">
                 <div class="card-body">

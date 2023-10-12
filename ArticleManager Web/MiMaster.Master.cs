@@ -9,9 +9,10 @@ namespace ArticleManager_Web
 {
     public partial class MiMaster : System.Web.UI.MasterPage
     {
+        public bool session { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            session = Session["session"] != null ? (bool)Session["session"] : false;
         }
     }
 }
