@@ -37,8 +37,13 @@ namespace ArticleManager_Web
             string valor = ((Button)sender).CommandArgument;
             auxArticulo = new List<Articulo>();
             ArticulosNegocio negocio = new ArticulosNegocio();
-            ArticulosCarrito = negocio.verDetallesArticulo(int.Parse(valor));
-            Session.Add("ArticulosCarrito", auxArticulo);
+            auxArticulo = negocio.verDetallesArticulo(int.Parse(valor));
+            if (ArticulosCarrito == null)
+            {
+                ArticulosCarrito = new List<Articulo>();
+            }
+            ArticulosCarrito.Add(auxArticulo[0]);
+            Session.Add("ArticulosCarrito", ArticulosCarrito);
             Session.Add("idArticulo", valor);
             Response.Redirect("Articulos.aspx", false);
         }
