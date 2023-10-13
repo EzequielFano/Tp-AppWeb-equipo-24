@@ -14,12 +14,11 @@ namespace ArticleManager_Web
     {
         public List<Articulo> ListaArticulos { get; set; }
         static public List<Articulo> ArticulosCarrito { get; set; }
-        public List<Articulo> auxArticulo { get; set; }
         static public int cantidad { get; set; }
-        public List<Imagen> imgAux { get; set; }
+        
         public List<Imagen> ListaImagenes { get; set; }
 
-        public string idArticulo { get; set; }
+        public List<int> idArticulo { get; set; }
 
         public bool session { get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -38,19 +37,26 @@ namespace ArticleManager_Web
         {
 
             string valor = ((Button)sender).CommandArgument;
-            auxArticulo = new List<Articulo>();
+           
             ArticulosNegocio negocio = new ArticulosNegocio();
-            auxArticulo = negocio.verDetallesArticulo(int.Parse(valor));
-            
+            List<Imagen> auxImg = new List<Imagen>();
+
+            List<Articulo> auxArticulo = negocio.TraerListadoCompletoxId(int.Parse(valor));
+           // auxImg = negocio.verImagenesArticulo(int.Parse(valor));
             if (ArticulosCarrito == null)
             {
                 ArticulosCarrito = new List<Articulo>();
             }
             ArticulosCarrito.Add(auxArticulo[0]);
+
+            if (idArticulo == null)
+            {
+                idArticulo = new List<int>();
+            }
+            idArticulo.Add(int.Parse(valor));
             cantidad = ArticulosCarrito.Count();
             Session.Add("ArticulosCarrito", ArticulosCarrito);
-            Session.Add("ListaImagenes", ListaImagenes);
-            Session.Add("idArticulo", valor);
+            Session.Add("idArticulo", idArticulo);
             Session.Add("cantidad", cantidad);
             Response.Redirect("Articulos.aspx", false);
 

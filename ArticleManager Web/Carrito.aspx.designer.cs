@@ -15,21 +15,12 @@ namespace ArticleManager_Web
     {
 
         /// <summary>
-        /// Control rpRepetidorImg.
+        /// Control rpRepetidor.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpRepetidorImg;
-
-        /// <summary>
-        /// Control rpCarrito.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Repeater rpCarrito;
+        protected global::System.Web.UI.WebControls.Repeater rpRepetidor;
     }
 }

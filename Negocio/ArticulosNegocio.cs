@@ -64,6 +64,7 @@ namespace Negocio
         //        datos.cerrarConexion();
         //    }
         //}
+      
         public List<Articulo> TraerListadoSP()
         {
             List<Articulo> articulos = new List<Articulo>();
@@ -120,8 +121,64 @@ namespace Negocio
                 datos.cerrarConexion();
             }
         }
-   
-       
+        public List<Articulo> TraerListadoCompletoxId(int id)
+        {
+            List<Articulo> articulos = new List<Articulo>();
+            AccesoDatos datos = new AccesoDatos();
+            int auximg = 0;
+
+            try
+            {
+                datos.setearProcedura("storedListarPorIdArticulo");
+                datos.setearParametro("IdArticulo", id);
+                datos.ejecutarLectura();
+                while (datos.Lector.Read())
+                {
+                    Articulo aux = new Articulo();
+                    aux.IdArticulo = datos.Lector.GetInt32(0);
+                    aux.CodigoArticulo = (string)datos.Lector["Codigo"];
+                    aux.NombreArticulo = (string)datos.Lector["Nombre"];
+                    aux.Descripcion = (string)datos.Lector["Descripcion"];
+                    aux.Marca = new Marca();
+                    aux.Marca.Descripcion = (string)datos.Lector["Marca"];
+                    aux.Marca.Id = (int)datos.Lector["IdMarca"];
+                    aux.Categoria = new Categoria();
+                    if (datos.Lector["Categoria"] is DBNull)
+                    {
+                        aux.Categoria = null;
+                    }
+                    else
+                    {
+                        aux.Categoria = new Categoria();
+                        aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
+                        aux.Categoria.Id = (int)datos.Lector["IdCategoria"];
+                    }
+                    aux.Precio = (int)datos.Lector.GetSqlMoney(8);
+                    aux.URLImagen = new Imagen();
+                    if (!(datos.Lector["ImagenUrl"] is DBNull))
+                    {
+                        aux.URLImagen.URL = (string)datos.Lector["ImagenUrl"];
+                        if (aux.URLImagen.URL == " ")
+                        {
+                            aux.URLImagen.URL = "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png";
+                        }
+                        auximg++;
+                    }
+                    articulos.Add(aux);
+
+                }
+                return articulos;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
         public void agregarArticulo(Articulo articulo)
         {
             AccesoDatos datos = new AccesoDatos();
@@ -204,6 +261,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             List<Imagen> listImg = new List<Imagen>();
             Articulo aux = new Articulo();
+            int auximg = 0;
       
 
             datos.setearProcedura("ObtenerImagenesxId");
@@ -218,6 +276,12 @@ namespace Negocio
                 {
                     aux.URLImagen.URL = (string)datos.Lector["ImagenUrl"];
                     aux.URLImagen.IdImagen = auxId;
+                    
+                    if (aux.URLImagen.URL == " ")
+                    {
+                        aux.URLImagen.URL = "https://redthread.uoregon.edu/files/original/affd16fd5264cab9197da4cd1a996f820e601ee4.png";
+                    }
+                    auximg++;
                 }
                 auxId++;
                 listImg.Add(aux.URLImagen);
@@ -229,8 +293,7 @@ namespace Negocio
             AccesoDatos datos = new AccesoDatos();
             Articulo aux = new Articulo();
             List<Articulo> articulos = new List<Articulo>();
-
-
+            
             datos.setearProcedura("ObtenerArticuloPorId");
             datos.setearParametro("IdArticulo", Id);
             datos.ejecutarLectura();
@@ -261,6 +324,8 @@ namespace Negocio
                     aux.Categoria = new Categoria();
                     aux.Categoria.Descripcion = (string)datos.Lector["Categoria"];
                 }
+                
+                
                 aux.Precio = (int)datos.Lector.GetSqlMoney(5);
                 aux.URLImagen = new Imagen();
                 aux.URLImagen.URL = " ";
