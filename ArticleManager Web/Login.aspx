@@ -8,17 +8,25 @@
         {%>
 
     <h3>Ingrese sus datos para iniciar la sesion: </h3>
+     <div class="row">
+        <div class="col-1"></div>
+        <div class="col">
     <div class="mb-3">
-        <label for="formGroupExampleInput" class="form-label">Usuario:</label>
-        <br />
-        <asp:TextBox ID="txtUser" runat="server" placeholder="Nombre de usuario..."></asp:TextBox>
+        <label for="exampleInputEmail1" class="form-label">Usuario</label>
+        <asp:TextBox cssClass="form-control" ID="txtUser" runat="server" />
     </div>
     <div class="mb-3">
-        <label for="formGroupExampleInput2" class="form-label">Password:</label>
-        <br />
-        <asp:TextBox ID="txtPassword" runat="server" placeholder="Password" TextMode="Password"></asp:TextBox>
+        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+        <asp:TextBox type="Password" CssClass="form-control" ID="txtPassword" runat="server" />
     </div>
-    <asp:Button ID="btnIngresar" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+    <asp:Button ID="btnIngresar" CssClass="btn btn-primary" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+ 
+
+
+        </div>
+        <div class="col-7"></div>
+
+ </div> 
 
     <%}
         else
