@@ -17,6 +17,7 @@ namespace ArticleManager_Web
             user = Session["user"]!=null ? Session["user"].ToString() : "" ;  
             password = Session["password"] != null ? Session["user"].ToString() : "";
             session = Session["session"] != null ? (bool)Session["session"] : false;
+           
 
         }
 
@@ -26,7 +27,7 @@ namespace ArticleManager_Web
             password = txtPassword.Text;  
             Session.Add("user", user);
             Session.Add("password", password);
-            Session.Add("session", true);
+            Session.Add("session", true);        
             Response.Redirect("Login.aspx", false);
         }
 

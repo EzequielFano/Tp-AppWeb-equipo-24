@@ -13,5 +13,10 @@ namespace ArticleManager_Web
         {
 
         }
+
+        protected void btnLogueate_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Login.aspx", false);
+        }
     }
 }

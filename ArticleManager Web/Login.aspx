@@ -20,10 +20,7 @@
         <asp:TextBox type="Password" CssClass="form-control" ID="txtPassword" runat="server" />
     </div>
     <asp:Button ID="btnIngresar" CssClass="btn btn-primary" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
- 
-
-
-        </div>
+     </div>
         <div class="col-7"></div>
 
  </div> 
@@ -32,9 +29,9 @@
         else
         { %>
 
-    <h3>Tu sesion ya esta iniciada!</h3>
+    <h3>Ya te logueaste a nuestra Carrito de Compras</h3>
     <br />
-    <asp:Button ID="btnCerrarSesion" runat="server" Text="Cerrar sesion" OnClick="btnCerrarSesion_Click" />
+    <asp:Button ID="btnCerrarSesion" runat="server" CssClass="btn btn-primary" Text="Cerrar sesion" OnClick="btnCerrarSesion_Click" />
     <a href="Default.aspx">Volver al inicio</a>
 
     <%}%>
