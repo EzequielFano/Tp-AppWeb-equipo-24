@@ -40,5 +40,10 @@ namespace ArticleManager_Web
             Session.Add("session", false);
             Response.Redirect("Login.aspx", false);
         }
+
+        protected void btnVolver_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Articulos.aspx", false);
+        }
     }
 }

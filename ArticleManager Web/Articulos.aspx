@@ -3,8 +3,11 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Cartitasssss...</h1>
-
+    <h3 style="color:darkgreen" class="" >Los mejores productos solo los encontras en nuestra web</h3>
+    <br>
+    <br />
+    
+    
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <asp:Repeater ID="rpRepetidor" runat="server">
           <ItemTemplate>    
@@ -18,12 +21,13 @@
                         <a href="Detalles.aspx?id=<%#Eval("IdArticulo")%>">Ver Detalles</a>
                         <%if (session)
                             {%>
-                        <asp:Button ID="btnCarrito" runat="server" Text="Agregar al carrito" CommandArgument='<%#Eval("IdArticulo")%>' commandName="IdArticulo" OnClick="btnCarrito_Click"/>
+                        <asp:Button ID="btnCarrito" runat="server" CssClass="btn btn-primary" Text="Agregar al carrito" CommandArgument='<%#Eval("IdArticulo")%>' commandName="IdArticulo" OnClick="btnCarrito_Click"/>
                         <%} %>
                     </div>
                 </div>
             </div>
-          </ItemTemplate>
+   
+         </ItemTemplate>
         </asp:Repeater>
 
 </asp:Content>

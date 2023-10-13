@@ -29,10 +29,10 @@
         else
         { %>
 
-    <h3>Ya te logueaste a nuestra Carrito de Compras</h3>
+    <h3>Te logueaste exitoxamente a nuestro carrito de compras</h3>
     <br />
     <asp:Button ID="btnCerrarSesion" runat="server" CssClass="btn btn-primary" Text="Cerrar sesion" OnClick="btnCerrarSesion_Click" />
-    <a href="Default.aspx">Volver al inicio</a>
+    <asp:Button ID="btnVolver" runat="server" Text="Volver al inicio" CssClass="btn btn-primary" OnClick="btnVolver_Click" />
 
     <%}%>
 </asp:Content>
