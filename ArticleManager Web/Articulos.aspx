@@ -3,7 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h3 style="color:darkgreen" class="" >Los mejores productos solo los encontras en nuestra web</h3>
+    <div class="container">
+        <div class="d-flex  justify-content-center mt-5">
+            <h1 style="color:white">Los mejores precios, al alcance de un click</h1>
+        </div>
+            <%if (!session)
+            {%>
+             <div class="d-flex  justify-content-center mt-2">
+            <h3 style="color:forestgreen">No olvides loguearte para realizar tu compra --> </h3>
+            <asp:Button BorderColor="DarkGray" Text="Loguate aqui" ID="btnLogueate" CssClass="btn btn-success" runat="server" OnClick="btnLogueate_Click" />
+            </div>
+            <%} %>
+    </div>
     <br>
     <br />
     

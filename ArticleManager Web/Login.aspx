@@ -6,33 +6,43 @@
 
     <%if (!session)
         {%>
-
-    <h3>Ingrese sus datos para iniciar la sesion: </h3>
-     <div class="row">
-        <div class="col-1"></div>
-        <div class="col">
-    <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Usuario</label>
-        <asp:TextBox cssClass="form-control" ID="txtUser" runat="server" />
+    <div class="container">
+        <div class="d-flex justify-content-center mt-4" >
+            <h3 style="color:white">Ingrese sus datos para iniciar la sesion: </h3>
+        </div>
     </div>
-    <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Contraseña</label>
-        <asp:TextBox type="Password" CssClass="form-control" ID="txtPassword" runat="server" />
-    </div>
-    <asp:Button ID="btnIngresar" CssClass="btn btn-primary" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
-     </div>
-        <div class="col-7"></div>
-
- </div> 
+     <     <div class="container">
+                <div class="mb-3">
+                <label for="exampleInputEmail1" style="color:white" class="form-label">Usuario</label>
+                <asp:TextBox cssClass="form-control" ID="txtUser" runat="server" />
+                </div>
+             
+                <div class="mb-3">
+                   <label for="exampleInputPassword1" style="color:white" class="form-label">Contraseña</label>
+                    <asp:TextBox type="Password" CssClass="form-control" ID="txtPassword" runat="server" />
+                </div>
+                 <div class="mb-3">
+                <asp:Button ID="btnIngresar" CssClass="btn btn-success" runat="server" Text="Ingresar" OnClick="btnIngresar_Click" />
+                </div>
+           </div>
+             
 
     <%}
         else
         { %>
-
-    <h3>Te logueaste exitoxamente a nuestro carrito de compras</h3>
+     <div class="container">
+        <div class="d-flex justify-content-center mt-4">
+           <h3 style="color:white">Te logueaste exitoxamente a nuestro carrito de compras</h3>
+         
+        </div>
+    </div>
     <br />
-    <asp:Button ID="btnCerrarSesion" runat="server" CssClass="btn btn-primary" Text="Cerrar sesion" OnClick="btnCerrarSesion_Click" />
-    <asp:Button ID="btnVolver" runat="server" Text="Volver al inicio" CssClass="btn btn-primary" OnClick="btnVolver_Click" />
+     <div class="container">
+    <div class="d-flex justify-content-lg-evenly">
+    <asp:Button ID="btnCerrarSesion" runat="server" CssClass="btn btn-success" Text="Cerrar sesion" OnClick="btnCerrarSesion_Click" />
+    <asp:Button ID="btnVolver" runat="server" Text="Comenzar a comprar" CssClass="btn btn-success" OnClick="btnVolver_Click"  />       
+    </div>
+</div>
 
     <%}%>
 </asp:Content>

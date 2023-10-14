@@ -18,5 +18,12 @@ namespace ArticleManager_Web
         {
             Response.Redirect("Login.aspx", false);
         }
+
+       
+
+        protected void btnComenzar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Articulos.aspx", false);
+        }
     }
 }

@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Carrito</h1>
+    <h1 style="color:white">Carrito</h1>
     <asp:Repeater ID="rpRepetidor" runat="server">
         <ItemTemplate>
             <div class="card mb-3" style="max-width: 540px;">

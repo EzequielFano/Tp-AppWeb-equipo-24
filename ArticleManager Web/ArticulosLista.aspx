@@ -2,8 +2,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1>Estos son nuestros articulos</h1>
-    <asp:GridView ID="dgvArticulos" runat="server" CssClass="table" AutoGenerateColumns="false">
+    <h1 style="color:white">Estos son nuestros articulos</h1>
+    <asp:GridView ID="dgvArticulos" runat="server" CssClass="table table-dark table-striped" AutoGenerateColumns="false">
         <Columns>   
             <asp:BoundField Headertext="Codigo Articulo" DataField="CodigoArticulo" />
             <asp:BoundField Headertext="Nombre" DataField="NombreArticulo" />
