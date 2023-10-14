@@ -3,8 +3,18 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+                           <div class="container mt-4">
+                           <div class="d-flex justify-content-end">
+                   <form class="d-flex align-self-auto" role="search">
+                      <asp:TextBox ID="txtBuscador" CssClass="form-control" OnTextChanged="txtBuscador_TextChanged" placeholder="Filtro" runat="server"></asp:TextBox>
+                       
+</form>
+
+                           </div>
+
+                       </div>
     <div class="container">
-        <div class="d-flex  justify-content-center mt-5">
+        <div class="d-flex  justify-content-center mt-2">
             <h1 style="color:white">Los mejores precios, al alcance de un click</h1>
         </div>
             <%if (!session)
@@ -32,7 +42,7 @@
                         <a href="Detalles.aspx?id=<%#Eval("IdArticulo")%>">Ver Detalles</a>
                         <%if (session)
                             {%>
-                        <asp:Button ID="btnCarrito" runat="server" CssClass="btn btn-primary" Text="Agregar al carrito" CommandArgument='<%#Eval("IdArticulo")%>' commandName="IdArticulo" OnClick="btnCarrito_Click"/>
+                        <asp:Button ID="btnCarrito" runat="server" CssClass="btn btn-success" Text="Agregar al carrito" CommandArgument='<%#Eval("IdArticulo")%>' commandName="IdArticulo" OnClick="btnCarrito_Click"/>
                         <%} %>
                     </div>
                 </div>

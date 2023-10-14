@@ -1,4 +1,6 @@
-﻿using System;
+﻿using Dominio;
+using Negocio;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -16,5 +18,7 @@ namespace ArticleManager_Web
             session = Session["session"] != null ? (bool)Session["session"] : false;
             cantidadCarrito = Session["cantidad"] != null ? (int)Session["cantidad"] : 0;
         }
+
+        
     }
 }

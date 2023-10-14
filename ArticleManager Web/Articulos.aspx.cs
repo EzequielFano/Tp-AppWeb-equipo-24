@@ -66,5 +66,25 @@ namespace ArticleManager_Web
         {
             Response.Redirect("Login.aspx",false);
         }
+        protected void txtBuscador_TextChanged(object sender, EventArgs e)
+        {
+            ArticulosNegocio negocio = new ArticulosNegocio();
+            List<Articulo> lista = new List<Articulo>();
+            List<Articulo> auxArticulo = negocio.TraerListadoSP();
+            string busqueda = txtBuscador.Text;
+            if (busqueda.Length > 1)
+            {
+                lista = auxArticulo.FindAll(x => x.NombreArticulo.ToUpper().Contains(busqueda.ToUpper())
+                || x.CodigoArticulo.ToUpper().Contains(busqueda.ToUpper())
+                || x.Descripcion.ToUpper().Contains(busqueda.ToUpper())
+                || x.Marca.Descripcion.ToUpper().Contains(busqueda.ToUpper())
+                || x.Categoria.Descripcion.ToUpper().Contains(busqueda.ToUpper()));
+            }
+            else
+            {
+                lista = auxArticulo;
+            }
+            //El filtro explota. falta terminar.
+        }
     }
 }

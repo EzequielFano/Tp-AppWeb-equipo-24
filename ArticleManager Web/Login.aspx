@@ -31,9 +31,14 @@
         else
         { %>
      <div class="container">
+    <div class="d-flex justify-content-center mt-4">       
+        <asp:Label ID="lblUser" cssClass="align-content-center " BackColor="white" BorderColor="Black" Font-Size="XX-Large" runat="server"></asp:Label>
+    </div>
+</div>
+     <div class="container">
         <div class="d-flex justify-content-center mt-4">
            <h3 style="color:white">Te logueaste exitoxamente a nuestro carrito de compras</h3>
-         
+            
         </div>
     </div>
     <br />

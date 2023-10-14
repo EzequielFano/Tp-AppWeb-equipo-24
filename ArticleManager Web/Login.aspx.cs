@@ -17,6 +17,7 @@ namespace ArticleManager_Web
             user = Session["user"]!=null ? Session["user"].ToString() : "" ;  
             password = Session["password"] != null ? Session["user"].ToString() : "";
             session = Session["session"] != null ? (bool)Session["session"] : false;
+            lblUser.Text = user;
            
 
         }
@@ -29,6 +30,7 @@ namespace ArticleManager_Web
             Session.Add("password", password);
             Session.Add("session", true);        
             Response.Redirect("Login.aspx", false);
+
         }
 
         protected void btnCerrarSesion_Click(object sender, EventArgs e)
