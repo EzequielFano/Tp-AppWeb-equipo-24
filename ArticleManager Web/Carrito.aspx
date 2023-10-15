@@ -19,6 +19,7 @@
                             <p class="card-text"><small class="text-body-secondary">Descripcion: <%#Eval("Descripcion")%></small></p>
                         </div>
                     </div>
+                    <asp:Button Text="Quitar articulo" CssClass="btn btn-danger" runat="server" />
                 </div>
             </div>
         </ItemTemplate>
