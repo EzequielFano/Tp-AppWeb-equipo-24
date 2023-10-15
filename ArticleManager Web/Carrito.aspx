@@ -3,7 +3,9 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="color:white">Carrito</h1>
+    <h1 style="color: white">Carrito</h1>
+    <%if (borroCarrito == false)
+        { %>
     <asp:Repeater ID="rpRepetidor" runat="server">
         <ItemTemplate>
             <div class="card mb-3" style="max-width: 540px;">
@@ -17,12 +19,14 @@
                             <h4 class="card-title"><%#Eval("Precio") %></h4>
                             <p class="card-text">Marca: <%#Eval("Marca")%></p>
                             <p class="card-text"><small class="text-body-secondary">Descripcion: <%#Eval("Descripcion")%></small></p>
+                            <asp:Button ID="btnEliminarCarrito" runat="server" CssClass="btn btn-success" Text="Eliminar del carrito" CommandArgument='<%#Eval("IdArticulo")%>' CommandName="IdArticulo" OnClick="btnEliminarCarrito_Click" />
                         </div>
                     </div>
                 </div>
             </div>
         </ItemTemplate>
     </asp:Repeater>
+    <%} %>
     ----------------
     <%--<asp:Repeater ID="rpRepetidorImg" runat="server">
         <ItemTemplate>

@@ -14,6 +14,7 @@ namespace ArticleManager_Web
     {
         public static List<Articulo> articulosCarrito { get; set; }
         public int cantidad { get; set; }
+        public bool borroCarrito { get; set; }
         public List<int> idArticulo { get; set; }
         public List<Imagen> ListaImagenes { get; set; }
         protected void Page_Load(object sender, EventArgs e)
@@ -21,32 +22,29 @@ namespace ArticleManager_Web
             ArticulosNegocio negocio = new ArticulosNegocio();
             List<Articulo> aux = new List<Articulo>();
             articulosCarrito = (List<Articulo>)Session["ArticulosCarrito"];
-            //if (idArticulo == null)
-            //{
-            //    idArticulo = new List<int>();
-            //    idArticulo = (List<int>)Session["idArticulo"];
-            //}
-            //int cantId = idArticulo.Count();
-            //cantidad = articulosCarrito.Count();
-            //for(int i = 0; i<cantId; i++)
-            //{
-            //aux = negocio.TraerListadoCompletoxId(idArticulo[i]);
-            //articulosCarrito.Add(aux[i]);
-            //}
+
             if (!IsPostBack)
             {
                 rpRepetidor.DataSource = articulosCarrito;
                 rpRepetidor.DataBind();
             }
 
-            //idArticulo = Session["idArticulo"].ToString();
-            //rpCarrito.DataSource = articulosCarrito;
-            //rpCarrito.DataBind();
-            //ListaImagenes = negocio.verImagenesArticulo(int.Parse(idArticulo));
-            //rpRepetidorImg.DataSource = ListaImagenes[0];
+        }
 
+        protected void btnEliminarCarrito_Click(object sender, EventArgs e)
+        {
+            string valor = ((Button)sender).CommandArgument;
 
-         
+            foreach (Articulo aux in articulosCarrito)
+            {
+                if (aux.IdArticulo == int.Parse(valor))
+                {
+                    articulosCarrito.Remove(aux);
+                    Response.Redirect("Carrito.aspx");
+                }
+
+            }
+
         }
     }
 }
