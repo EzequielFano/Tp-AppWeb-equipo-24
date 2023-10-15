@@ -3,7 +3,8 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h1 style="color:white">Carrito</h1>
+    <h1 style="color:white">Carrito de compras</h1>
+    <h4 style="color:white">A continuacion podras ver tus articulos agregados, traquilo, ya falta poco para que sean tuyos</h4>
     <asp:Repeater ID="rpRepetidor" runat="server">
         <ItemTemplate>
             <div class="card mb-3" style="max-width: 540px;">
@@ -24,7 +25,6 @@
             </div>
         </ItemTemplate>
     </asp:Repeater>
-    ----------------
     <%--<asp:Repeater ID="rpRepetidorImg" runat="server">
         <ItemTemplate>
             <img src="<%#Eval("URL") %>" class="img-thumbnail" alt="...">
