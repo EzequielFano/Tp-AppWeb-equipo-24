@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Dominio;
+using System.Collections;
 
 
 namespace ArticleManager_Web
@@ -19,14 +20,25 @@ namespace ArticleManager_Web
         public List<Imagen> ListaImagenes { get; set; }
 
         public List<int> idArticulo { get; set; }
+        public bool filtrado { get; set; }
 
         public bool session { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
+            filtrado=Session["Filtrado"] != null ? true : false;
+            ListaArticulos = (List<Articulo>)Session["ListaArticulos"];
             session = Session["session"] != null ? (bool)Session["session"] : false;
+            if (!filtrado)
+            {
             ArticulosNegocio negocio = new ArticulosNegocio();
             ListaArticulos = negocio.TraerListadoSP();
-            if (!IsPostBack)
+                if (!IsPostBack)
+                {
+                    rpRepetidor.DataSource = ListaArticulos;
+                    rpRepetidor.DataBind();
+                }
+            }
+            else
             {
                 rpRepetidor.DataSource = ListaArticulos;
                 rpRepetidor.DataBind();
@@ -65,14 +77,15 @@ namespace ArticleManager_Web
         protected void btnLogueate_Click(object sender, EventArgs e)
         {
             Response.Redirect("Login.aspx",false);
-        }
-        protected void txtBuscador_TextChanged(object sender, EventArgs e)
+        }               
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
             ArticulosNegocio negocio = new ArticulosNegocio();
             List<Articulo> lista = new List<Articulo>();
             List<Articulo> auxArticulo = negocio.TraerListadoSP();
             string busqueda = txtBuscador.Text;
-            if (busqueda.Length > 1)
+            if (busqueda.Length > 0)
             {
                 lista = auxArticulo.FindAll(x => x.NombreArticulo.ToUpper().Contains(busqueda.ToUpper())
                 || x.CodigoArticulo.ToUpper().Contains(busqueda.ToUpper())
@@ -84,7 +97,25 @@ namespace ArticleManager_Web
             {
                 lista = auxArticulo;
             }
-            //El filtro explota. falta terminar.
+            filtrado = true;
+            ListaArticulos = lista;
+            Session.Add("Filtrado", filtrado);
+            Session.Add("ListaArticulos", ListaArticulos);
+            Response.Redirect("Articulos.aspx");
+        }
+
+        protected void btnReset_Click(object sender, EventArgs e)
+        {
+            ArticulosNegocio negocio = new ArticulosNegocio();
+            List<Articulo> lista = new List<Articulo>();
+            List<Articulo> auxArticulo = negocio.TraerListadoSP();
+            lista= auxArticulo;
+            filtrado = false;
+            ListaArticulos = lista;
+            Session.Add("Filtrado", filtrado);
+            Session.Add("ListaArticulos", ListaArticulos);
+            Response.Redirect("Articulos.aspx");
+
         }
     }
 }

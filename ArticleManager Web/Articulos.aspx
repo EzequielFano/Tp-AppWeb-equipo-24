@@ -4,23 +4,27 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
                            <div class="container mt-4">
-                           <div class="d-flex justify-content-end">
-                   <form class="d-flex align-self-auto" role="search">
-                      <asp:TextBox ID="txtBuscador" CssClass="form-control" OnTextChanged="txtBuscador_TextChanged" placeholder="Filtro" runat="server"></asp:TextBox>
-                       
-</form>
+                                <div class="d-flex justify-content-end">
+                                    <form class="d-flex align-self-auto" role="search">
+                                        <asp:TextBox ID="txtBuscador" CssClass="form-control" placeholder="Filtro" runat="server"></asp:TextBox>
+                                        &nbsp
+                                        <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-outline-success" OnClick="btnBuscar_Click" Text="Buscar" />
+                                        &nbsp
+                                        <asp:Button ID="btnReset" runat="server" CssClass="btn btn-outline-danger" OnClick="btnReset_Click" Text="Resetear" />
+                                     </form>
 
-                           </div>
+                                </div>
 
-                       </div>
-    <div class="container">
-        <div class="d-flex  justify-content-center mt-2">
+                        </div>
+        <div class="container">
+         <div class="d-flex  justify-content-center mt-2">
             <h1 style="color:white">Los mejores precios, al alcance de un click</h1>
         </div>
             <%if (!session)
             {%>
              <div class="d-flex  justify-content-center mt-2">
             <h3 style="color:forestgreen">No olvides loguearte para realizar tu compra --> </h3>
+                 &nbsp
             <asp:Button BorderColor="DarkGray" Text="Loguate aqui" ID="btnLogueate" CssClass="btn btn-success" runat="server" OnClick="btnLogueate_Click" />
             </div>
             <%} %>
