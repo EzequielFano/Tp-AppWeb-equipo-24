@@ -40,7 +40,9 @@ namespace ArticleManager_Web
                 if (aux.IdArticulo == int.Parse(valor))
                 {
                     articulosCarrito.Remove(aux);
+                    cantidad--;
                     Response.Redirect("Carrito.aspx");
+
                 }
 
             }
