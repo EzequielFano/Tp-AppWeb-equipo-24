@@ -71,7 +71,7 @@ namespace ArticleManager_Web
             Session.Add("idArticulo", idArticulo);
             Session.Add("cantidad", cantidad);
             Response.Redirect("Articulos.aspx", false);
-
+            
         }
 
         protected void btnLogueate_Click(object sender, EventArgs e)

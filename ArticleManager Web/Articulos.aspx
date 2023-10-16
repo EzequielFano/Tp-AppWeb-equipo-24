@@ -3,7 +3,7 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-                           <div class="container mt-4">
+                               <div class="container mt-4">
                                 <div class="d-flex justify-content-end">
                                     <form class="d-flex align-self-auto" role="search">
                                         <asp:TextBox ID="txtBuscador" CssClass="form-control" placeholder="Filtro" runat="server"></asp:TextBox>

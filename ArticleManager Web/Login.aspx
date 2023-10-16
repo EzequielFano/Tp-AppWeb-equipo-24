@@ -37,7 +37,7 @@
 </div>
      <div class="container">
         <div class="d-flex justify-content-center mt-4">
-           <h3 style="color:white">Te logueaste exitoxamente a nuestro carrito de compras</h3>
+           <h3 style="color:white">Te logueaste exitosamente a nuestro carrito de compras</h3>
             
         </div>
     </div>
