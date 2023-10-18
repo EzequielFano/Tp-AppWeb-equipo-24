@@ -3,11 +3,19 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<<<<<<< HEAD
     <div class="container mt-4">
         <div class="d-flex justify-content-end">
             <form class="d-flex align-self-auto" role="search">
                 <asp:TextBox ID="txtBuscador" CssClass="form-control" placeholder="Filtro" runat="server"></asp:TextBox>
                 &nbsp
+=======
+                               <div class="container mt-4">
+                                <div class="d-flex justify-content-end">
+                                    <form class="d-flex align-self-auto" role="search">
+                                        <asp:TextBox ID="txtBuscador" CssClass="form-control" placeholder="Filtro" runat="server"></asp:TextBox>
+                                        &nbsp
+>>>>>>> ae9c24eb5949c6b9b547cc4f259f0a72f3d11f01
                                         <asp:Button ID="btnBuscar" runat="server" CssClass="btn btn-outline-success" OnClick="btnBuscar_Click" Text="Buscar" />
                 &nbsp
                                         <asp:Button ID="btnReset" runat="server" CssClass="btn btn-outline-danger" OnClick="btnReset_Click" Text="Resetear" />
