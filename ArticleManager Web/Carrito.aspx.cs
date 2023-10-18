@@ -22,7 +22,7 @@ namespace ArticleManager_Web
             ArticulosNegocio negocio = new ArticulosNegocio();
             List<Articulo> aux = new List<Articulo>();
             articulosCarrito = (List<Articulo>)Session["ArticulosCarrito"];
-
+            cantidad = Session["cantidad"] != null ? (int)Session["cantidad"] : 0;
             if (!IsPostBack)
             {
                 rpRepetidor.DataSource = articulosCarrito;
@@ -41,6 +41,7 @@ namespace ArticleManager_Web
                 {
                     articulosCarrito.Remove(aux);
                     cantidad--;
+                    Session["cantidad"] = cantidad;
                     Response.Redirect("Carrito.aspx");
 
                 }
