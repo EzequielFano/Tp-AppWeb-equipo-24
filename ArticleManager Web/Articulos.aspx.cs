@@ -51,10 +51,8 @@ namespace ArticleManager_Web
             string valor = ((Button)sender).CommandArgument;
            
             ArticulosNegocio negocio = new ArticulosNegocio();
-            List<Imagen> auxImg = new List<Imagen>();
 
             List<Articulo> auxArticulo = negocio.TraerListadoCompletoxId(int.Parse(valor));
-           // auxImg = negocio.verImagenesArticulo(int.Parse(valor));
             if (ArticulosCarrito == null)
             {
                 ArticulosCarrito = new List<Articulo>();

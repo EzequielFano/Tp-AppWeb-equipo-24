@@ -11,10 +11,10 @@
         </div>
         <div class="carousel-inner">
             <div class="carousel-item active">
-                <img src="https://media.licdn.com/dms/image/C4E03AQFn3aMcCNS1Iw/profile-displayphoto-shrink_800_800/0/1653661926728?e=2147483647&v=beta&t=5LgxrGBxw4xkARfaC4hb56sfgs6rizPMLidEkXt-U5E" class="d-block w-100" alt="...">
+                <img src="https://media.licdn.com/dms/image/C4E03AQFn3aMcCNS1Iw/profile-displayphoto-shrink_800_800/0/1653661926728?e=2147483647&v=beta&t=5LgxrGBxw4xkARfaC4hb56sfgs6rizPMLidEkXt-U5E" class="d-block w-100" style="transform: scale(0.5);" alt="...">
                 <div class="carousel-caption d-none d-md-block">
-                    <h2 style="color:black">Ezequiel Fano</h2>
-                    <p style="color:black">
+                    <h2 style="color:white">Ezequiel Fano</h2>
+                    <p style="color:white">
                         Mi nombre es Ezequiel Fano, trabajo para la empresa Kupner SAS en un proyecto
 que intenta lograr la trazabilidad en la planta Fate SAICI, como Proyect Manager.
 
@@ -28,7 +28,7 @@ Espero disfrutes la app!
                 </div>
             </div>
             <div class="carousel-item">
-                <img src="https://media.licdn.com/dms/image/C5603AQEUauxLPoShnw/profile-displayphoto-shrink_800_800/0/1628795779160?e=2147483647&v=beta&t=zerFjT2k39xMwb_uzY_ZWE7y_4_tDGPHUoABqnTfrR0 " class="d-block w-100" alt="...">
+                <img src="https://media.licdn.com/dms/image/C5603AQEUauxLPoShnw/profile-displayphoto-shrink_800_800/0/1628795779160?e=2147483647&v=beta&t=zerFjT2k39xMwb_uzY_ZWE7y_4_tDGPHUoABqnTfrR0 " class="d-block w-100" style="transform: scale(0.5);" alt="...">
                 <div class="carousel-caption d-none d-md-block">
                     <h2 style="color:green">Franco Danelon</h2>
                     <p style="color:green">Me llamo Franco Danelon, trabajo para la empresa PUMA GROUP como analista 

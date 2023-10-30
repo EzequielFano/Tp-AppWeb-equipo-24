@@ -19,8 +19,6 @@ namespace ArticleManager_Web
         public List<Imagen> ListaImagenes { get; set; }
         protected void Page_Load(object sender, EventArgs e)
         {
-            ArticulosNegocio negocio = new ArticulosNegocio();
-            List<Articulo> aux = new List<Articulo>();
             articulosCarrito = (List<Articulo>)Session["ArticulosCarrito"];
             cantidad = Session["cantidad"] != null ? (int)Session["cantidad"] : 0;
             if (!IsPostBack)
