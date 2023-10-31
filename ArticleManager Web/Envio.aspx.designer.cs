@@ -11,7 +11,7 @@ namespace ArticleManager_Web
 {
 
 
-    public partial class WebForm2
+    public partial class Envio
     {
     }
 }
